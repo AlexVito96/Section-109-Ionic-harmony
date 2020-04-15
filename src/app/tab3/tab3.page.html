@@ -8,5 +8,24 @@
 
 <ion-content [fullscreen]="true">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
-</ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Friend Name:
+        </ion-label>
+        <ion-input [(ngModel)]="friend.name" name="name">
+        </ion-input>
+      </ion-item>
+
+      <ion-button (click)="onSave()" class="main-button" expand="block" color="primary">Add new friend </ion-button>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- list -->
+  <ion-list>
+    <ion-item *ngFor="let friend of myFriends">
+      <ion-icon name="person-outline"></ion-icon>{{friend.name}}
+    </ion-item>
+  </ion-list>

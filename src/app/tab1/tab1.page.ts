@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Message } from '../models/message';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-tab1',
@@ -11,11 +12,19 @@ export class Tab1Page {
 
   displayMessage: Message[];
 
-  constructor(private data: DataService) {
-    this.homework();
+  constructor(private data: DataService, private shared: SharedService) {
+    
     data.getAllMessages().subscribe(list => {
 
-      this.displayMessage = list.sort((left, right) => {
+      var filtered = [];
+      for(let i = 0; i<list.length; i++){
+        var m = list[i];
+        if(m.to =="General" || m.to == shared.userName || m.from == shared.userName){
+          filtered.push(m);
+        }
+      }
+
+      this.displayMessage = filtered.sort((left, right) => {
         //return -1 when left should go first
         //return 1 when right should go first
         //return 0 if they are the same
@@ -35,7 +44,7 @@ export class Tab1Page {
   }
 }
 
-homework(){
+/* homework(){
   var data = [
     {
       "_id": "5e935f94b0ecb3f1e7c2188d",
@@ -129,5 +138,4 @@ homework(){
   //4 -Sum all the balances
   
   //var num = balance.replace("$","").replace(",","");
-}
-
+} */
