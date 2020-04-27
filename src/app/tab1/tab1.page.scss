@@ -7,9 +7,6 @@ ion-card-container{
 
 }
 
-ion-card-header{
-  
-}
 
 ion-card-title{
   font-size:16px;
@@ -17,11 +14,27 @@ ion-card-title{
   margin-bottom:5px;
   font-weight:400;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(134, 5, 5);
+  color: rgb(13, 52, 95);
 }
 
 ion-card-subtitle{
   font-size:17px;
   font-weight:500;
   color:rgb(49, 48, 48);
+}
+
+ion-content{
+  --background: none;
+  background-image: url('/assets/img/wolfEyes.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ion-title{
+  font-size:30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:rgb(252, 250, 250);
+  color: rgb(13, 52, 95);
+
 }
